@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" lang="amh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Game</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+   <link href="bingo_caller.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="background-image"></div>
+    <div class="container text-center">
+        <div class="center-container">
+            <div class="row">
+                <div class="col-12">
+                    <div id="total-bet-amount" class="total-bet-amount">ደራሽ: 0</div>
+                    <div id="total-calls" class="total-calls">Total Calls: 0</div>
+                    <div id="called-number" class="called-number"></div>
+                    <div id="called-numbers-container" class="called-numbers-container"></div>
+                    <div id="numbers-container" class="numbers-container">
+                        <div class="row" id="row-B">
+                            <h2>B</h2>
+                        </div>
+                        <div class="row" id="row-I">
+                            <h2>I</h2>
+                        </div>
+                        <div class="row" id="row-N">
+                            <h2>N</h2>
+                        </div>
+                        <div class="row" id="row-G">
+                            <h2>G</h2>
+                        </div>
+                        <div class="row" id="row-O">
+                            <h2>O</h2>
+                        </div>
+                    </div>
+                    <div id="boards-container"></div>
+                    <div id="result" class="result"></div>
+                </div>
+            </div>
+        </div>
+        <div class="left-down-corner">
+            <div class="form-group">
+                <div id="countdown" class="countdown"></div>
+                <label for="interval-select">Select Time:</label>
+                <select id="interval-select" class="form-control w-50 mx-auto">
+                    <option value="5">5 seconds</option>
+                    <option value="3">3 seconds</option>
+                </select>
+                <button id="history-button" class="btn btn-info mt-3">View History</button>
+            </div>
+            <button id="call-number-button" class="btn btn-primary">Start Calling</button>
+            <button id="play-pause-button" class="btn btn-secondary">Pause</button>
+            <button id="end-game-button" class="btn btn-danger mt-2">End Game</button>
+            <div class="form-group mt-4">
+                <input type="number" id="board-number-input" class="form-control w-50 mx-auto" placeholder="Enter Board Number">
+                <button id="check-winner-button" class="btn btn-success mt-2">Check</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for displaying winner result -->
+    <div class="modal fade" id="winnerModal" tabindex="-1" role="dialog" aria-labelledby="winnerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="winnerModalLabel">Winner Result</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="winner-modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Audio files for popup sounds -->
+    <audio id="clear-result-sound" src="sound/winner.m4a"></audio>
+    <audio id="unclear-result-sound" src="sound/losser.m4a"></audio>
+    <script src="bingo_caller.js">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
